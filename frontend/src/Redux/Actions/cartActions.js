@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as actionTypes from '../Constants/cartConstants';
-const URL = 'http://localhost:7000';
+const URL = 'https://farmer-assistance.onrender.com';
 
 export const addToCart = (productId,quantity) => async (dispatch) => {
     try {

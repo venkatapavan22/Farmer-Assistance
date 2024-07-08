@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:7000';
-export const API_URL = 'http://localhost:7000';
+const URL = 'https://farmer-assistance.onrender.com';
+export const API_URL = 'https://farmer-assistance.onrender.com';
 
 export const authenticateSignUp = async(data,token) => {
     try {

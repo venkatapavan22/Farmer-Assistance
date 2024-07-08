@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as actionTypes from "../Constants/orderConstants";
-const URL = "http://localhost:7000";
+const URL = "https://farmer-assistance.onrender.com";
 
 export const getOrders = (userId) => async (dispatch) => {
     try {
