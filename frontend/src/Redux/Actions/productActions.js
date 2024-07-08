@@ -2,6 +2,7 @@ import axios from "axios";
 import * as actionTypes from '../Constants/productConstants';
 
 const URL = "https://farmer-assistance.onrender.com";
+// const URL = "http://localhost:7000";
 
 export const getProducts = () => async(dispatch) =>{
     try {
