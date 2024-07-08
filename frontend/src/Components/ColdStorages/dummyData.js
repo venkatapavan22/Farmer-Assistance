@@ -125,7 +125,7 @@ export const Data = [
                 capacity: "1000 MT"
             },
             {
-                location: "Bilaspur",
+                location: "Bilaspura",
                 name: "Kosa Cold Storage",
                 category: "Rice",
                 capacity: "800 MT"
