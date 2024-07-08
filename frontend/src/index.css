@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+/* @layer base{
+    body{
+        background: linear-gradient(to bottom right, rgb(255, 228, 230) 0%, transparent 12%),
+            linear-gradient(to bottom right, rgb(240, 171, 252) 0%, transparent 60%),
+            linear-gradient(to bottom right, rgb(16, 185, 129) 0%, transparent 52%),
+            linear-gradient(to bottom right, rgb(165, 243, 252) 0%, transparent 11%),
+            linear-gradient(to bottom right, rgb(204, 251, 241) 0%, transparent 8%),
+            linear-gradient(to bottom right, rgb(255, 237, 213) 0%, transparent 36%);
+        background-color: rgb(245, 245, 245);
+    }
+} */
+.glass {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.loader {
+    width: 60px;
+    aspect-ratio: 4;
+    background: radial-gradient(circle closest-side, #000 90%, #0000) 0 / calc(100% / 3) 100% space;
+    clip-path: inset(0 100% 0 0);
+    animation: l1 1s steps(4) infinite;
+}
+
+@keyframes l1 {
+    to {
+        clip-path: inset(0 -34% 0 0);
+    }
+}
+
+.items {
+    padding: 2rem 5%;
+}
+
+@keyframes moveClouds {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0% 0;
+    }
+}
+
+.clouds-animation {
+    animation: moveClouds 60s linear infinite;
+}
+
+.animation-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-icon {
+    color: #38a169;
+    font-size: 5rem;
+    animation: bounceIn 1s ease-out;
+}
+
+.toggle-checkbox {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-checkbox:checked {
+    background: #8EC44C;
+}
+
+.toggle-checkbox::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s;
+}
+
+.toggle-checkbox:checked::before {
+    transform: translateX(20px);
+}
+
+.toggle-label {
+    display: none;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-scroll {
+    display: inline-block;
+    animation: scroll 10s linear infinite;
+}
+
+.bg-mint-green {
+    background-color: #E8F5E9;
+}
+
+.bg-teal {
+    background-color: #A7FFEB;
+}
+
+.bg-light-green {
+    background-color: #81C784; 
+}
+
+.bg-dark-green {
+    background-color: #66BB6A;
+}
+footer {
+    background: 
+        linear-gradient(
+            rgba(224, 255, 244, 0.8), 
+            rgba(224, 255, 244, 0.8)
+        ), 
+        url('../src/assets/main/footerbg.jpg') no-repeat center center/cover;
+}
+.bg{
+    background: 
+        linear-gradient(
+            rgba(224, 255, 244, 0.8), 
+            rgba(224, 255, 244, 0.8)
+        ), 
+        url('https://img.freepik.com/free-photo/industrial-park-factory-building-warehouse_1417-1939.jpg?t=st=1719725356~exp=1719728956~hmac=b1dfc8c8f510d42ba122ac7fb6350fc17c9164cff34175c8538074099e02f823&w=1060') no-repeat center center/cover;
+}
+.bg-market{
+    background: 
+        linear-gradient(
+            rgba(224, 255, 244, 0.8), 
+            rgba(224, 255, 244, 0.8)
+        ), 
+        url('https://img.freepik.com/free-photo/street-market-sunset_23-2151529963.jpg?t=st=1719725458~exp=1719729058~hmac=099694a7d982b74a22260053de7ab461130697614771e47c4aaab2ec32033ceb&w=1060') no-repeat center center/cover;
+}
+/* .chat{
+    background: 
+        linear-gradient(
+            rgba(224, 255, 244, 0.8), 
+            rgba(224, 255, 244, 0.8)
+        ), 
+        url('https://e1.pxfuel.com/desktop-wallpaper/461/478/desktop-wallpaper-whatsapp-dark-whatsapp-chat-thumbnail.jpg') no-repeat center center/cover;
+} */

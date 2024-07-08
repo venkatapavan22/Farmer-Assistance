@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: "Outfit", sans-serif;
+    box-sizing: border-box;
+}
+
+span {
+    font-weight: 600;
+    color: black;
+}
+
+.loader {
+    border: 4px solid rgba(0, 0, 0, .1);
+    border-left-color: transparent;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin89345 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@keyframes spin89345 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
