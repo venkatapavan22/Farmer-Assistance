@@ -22,3 +22,14 @@ export const getConversations = async(req,res) => {
         return res.status(500).json({message:"Internal Server Error",});
     }
 } 
+
+export const deleteMessageById = async(req,res) => {
+    try {
+        const id = req.params.id;
+        const message = await Message.findById(id);
+        await message.deleteOne()
+        return res.status(201).json({message:"message deleted succefully"})
+    } catch (error) {
+        return res.status(500).json({message:"Something went wrong",error:error.message})
+    }
+}

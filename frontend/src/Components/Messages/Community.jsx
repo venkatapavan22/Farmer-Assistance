@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { API_URL, addConversation, getConversations } from "../../Services/api";
+import { API_URL, addConversation, deleteMessageById, getConversations } from "../../Services/api";
 import { useNavigate } from "react-router-dom";
 import { IoIosSend } from "react-icons/io";
 
@@ -19,6 +19,17 @@ const Community = () => {
             console.log("Error while fetching messages", error);
         }
     };
+
+    const deleteMessage = async() => {
+        const id = filteredMessages._id;
+        if(filteredMessages.user._id == null){
+            try {
+                await deleteMessageById(id)
+            } catch (error) {
+                console.log("error while deleting message id")
+            }
+        }
+    }
 
     const addMessage = async (e) => {
         e.preventDefault();
@@ -44,6 +55,7 @@ const Community = () => {
 
     useEffect(() => {
         fetchMessages();
+        deleteMessage()
     }, []);
 
     useEffect(() => {
@@ -84,7 +96,7 @@ const Community = () => {
                                 <img
                                     src={msg.user.image ? `${API_URL}/uploads/${msg.user.image}` : "https://via.placeholder.com/150"}
                                     alt="dp"
-                                    className="w-7 h-7 rounded-full"
+                                    className="w-5 h-5 rounded-full md:h-7 w-7"
                                 />
                             </div>
                             <div className={`text-gray-700 p-2 w-full rounded-md md:w-auto ${localStorage.getItem("userId") === msg.user._id ? "bg-green-100" : "bg-gray-100"}`}>
@@ -105,7 +117,7 @@ const Community = () => {
                     placeholder="Type your message here..."
                 ></input>
                 <button type="submit" className="bg-green-500 text-white p-2 rounded-lg flex items-center gap-2">
-                    <IoIosSend />Post Message
+                    <IoIosSend className="text-lg md:text-2xl"/><span className="hidden md:flex">Post Message</span>
                 </button>
             </form>
         </div>

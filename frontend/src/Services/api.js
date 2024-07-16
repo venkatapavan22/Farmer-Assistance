@@ -80,3 +80,13 @@ export const getConversations = async(token) => {
         console.log("Error while calling getConversations api",error);
     }
 }
+
+export const deleteMessageById = async(id) =>{
+    try {
+        const config= {headers: {Authorization: `Bearer ${token}`}};
+        const response = await axios.get(`${URL}/message/deleteMessage/${id}`,config);
+        return response.data;
+    } catch (error) {
+        console.log("Error while calling getConversations api",error);
+    }
+}
