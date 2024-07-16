@@ -63,7 +63,7 @@ const Contact = () => {
 
     return (
         <div className="flex flex-col justify-center sm:flex-row bg-white py-8">
-            <div className="flex-col py-8 flex justify-center rounded-md md: flex-row">
+            <div className="flex-1 py-8 flex justify-center rounded-md ">
                 <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-6 rounded-tl-2xl rounded-bl-2xl ">
                     <h2 className="text-gray-700 font-semibold text-center text-2xl mb-4">Get In Touch</h2>
                     <div className="mb-4">
