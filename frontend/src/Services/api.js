@@ -81,10 +81,9 @@ export const getConversations = async(token) => {
     }
 }
 
-export const deleteMessagesWhereUserIsNull = async(token,id) => {
+export const deleteMessagesWhereUserIsNull = async(id) => {
     try {
-        const config = {headers: {Authorization:`Bearer ${token}`}}
-        const response = await axios.delete(`${URL}/message/deleteMessages/${id}`,config)
+        const response = await axios.delete(`${URL}/message/deleteMessages/${id}`)
         return response.data
     } catch (error) {
         console.log("Error while calling deleteMessage api",error)
