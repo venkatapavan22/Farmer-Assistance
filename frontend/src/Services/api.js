@@ -81,12 +81,12 @@ export const getConversations = async(token) => {
     }
 }
 
-export const deleteMessageById = async(id) =>{
+export const deleteMessagesWhereUserIsNull = async(token,id) => {
     try {
-        const config= {headers: {Authorization: `Bearer ${token}`}};
-        const response = await axios.get(`${URL}/message/deleteMessage/${id}`,config);
-        return response.data;
+        const config = {headers: {Authorization:`Bearer ${token}`}}
+        const response = await axios.delete(`${URL}/message/deleteMessages/${id}`,config)
+        return response.data
     } catch (error) {
-        console.log("Error while calling getConversations api",error);
-    }
+        console.log("Error while calling deleteMessage api",error)
+    }
 }

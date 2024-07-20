@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { API_URL, addConversation, deleteMessageById, getConversations } from "../../Services/api";
+import { API_URL, addConversation, deleteMessagesWhereUserIsNull, getConversations } from "../../Services/api";
 import { useNavigate } from "react-router-dom";
 import { IoIosSend } from "react-icons/io";
 
@@ -20,16 +20,18 @@ const Community = () => {
         }
     };
 
-    const deleteMessage = async() => {
-        const id = filteredMessages._id;
-        if(filteredMessages.user._id == null){
-            try {
-                await deleteMessageById(id)
-            } catch (error) {
-                console.log("error while deleting message id")
+    const deleteMessageById = async() =>{
+        try {
+            const id = messages._id;
+            if(id == null){
+                const response = await deleteMessagesWhereUserIsNull(id);
+                return response;
             }
+        } catch (error) {
+            console.log("Error while deleting message", error);
         }
     }
+
 
     const addMessage = async (e) => {
         e.preventDefault();
@@ -55,7 +57,7 @@ const Community = () => {
 
     useEffect(() => {
         fetchMessages();
-        deleteMessage()
+        deleteMessageById()
     }, []);
 
     useEffect(() => {
